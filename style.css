@@ -464,3 +464,44 @@ footer {
   .section-heading h2 { font-size: 22px; }
   .detail-hero, .detail-panel { padding: 21px; }
 }
+/* Modal thêm bài học */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(48, 53, 47, 0.45);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-box {
+  width: min(100% - 20px, 550px);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(54, 61, 44, 0.15);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h3 {
+  font-size: 18px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--muted);
+}
