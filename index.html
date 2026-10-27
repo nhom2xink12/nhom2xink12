@@ -42,10 +42,10 @@
         <div>
           <span class="eyebrow">OUR KNOWLEDGE LIBRARY</span>
           <h2>Tài liệu & bài học</h2>
-          <p>Tổng hợp kiến thức Tin học và bài tập thực hành[cite: 5].</p>
+          <p>Tổng hợp kiến thức Tin học và bài tập thực hành.</p>
         </div>
-        <div style="display: flex; gap: 12px; align-items: center;">
-          <button id="open-add-lesson-modal" class="btn btn-primary" type="button">+ Thêm bài học</button>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <button class="btn btn-primary" id="open-add-lesson-modal" type="button">+ Thêm bài học</button>
           <span class="count-badge" id="lesson-count">08 bài học</span>
         </div>
       </div>
@@ -62,14 +62,11 @@
   <!-- Modal Thêm Bài Học -->
   <div id="add-lesson-modal" class="modal-overlay" style="display: none;">
     <div class="modal-box">
-      <div class="modal-header">
-        <h3>Thêm bài học mới</h3>
-        <button id="close-add-lesson-modal" class="close-btn" type="button">&times;</button>
-      </div>
+      <h3>Thêm bài học mới</h3>
       <form id="add-lesson-form" class="edit-form">
         <div class="field">
-          <label for="new-lesson-number">Số thứ tự bài</label>
-          <input type="number" id="new-lesson-number" name="number" required min="1" value="11">
+          <label for="new-lesson-number">Số thứ tự bài học (ví dụ: 11)</label>
+          <input type="number" id="new-lesson-number" name="number" required value="11">
         </div>
         <div class="field">
           <label for="new-lesson-title">Tiêu đề bài học</label>
@@ -77,15 +74,15 @@
         </div>
         <div class="field">
           <label for="new-lesson-desc">Mô tả ngắn</label>
-          <textarea id="new-lesson-desc" name="description" rows="2" placeholder="Nhập mô tả ngắn về bài học..."></textarea>
+          <textarea id="new-lesson-desc" name="description" placeholder="Mô tả ngắn gọn về bài học..."></textarea>
         </div>
         <div class="field">
           <label for="new-lesson-content">Nội dung chi tiết</label>
-          <textarea id="new-lesson-content" name="content" rows="6" placeholder="Nhập nội dung chi tiết bài học..."></textarea>
+          <textarea id="new-lesson-content" name="content" placeholder="Nội dung chi tiết của bài học..."></textarea>
         </div>
         <div class="action-row">
-          <button type="submit" class="btn btn-primary">Thêm bài học</button>
-          <button type="button" id="cancel-add-lesson" class="btn">Hủy</button>
+          <button type="submit" class="btn btn-primary">Lưu bài học</button>
+          <button type="button" class="btn" id="close-add-lesson-modal">Hủy</button>
         </div>
       </form>
     </div>
