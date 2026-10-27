@@ -41,76 +41,76 @@ const LESSONS = [
     id: "bai-3",
     number: 3,
     title: "Các thiết bị kết nối mạng",
-    description: "Router Wi-Fi, Switch Ethernet và kết nối Internet[cite: 5].",
+    description: "Router Wi-Fi, Switch Ethernet và kết nối Internet.",
     content: `LUYỆN TẬP
 
-Câu 1: Các thiết bị kết nối mạng trong gia đình[cite: 5]
+Câu 1: Các thiết bị kết nối mạng trong gia đình
 
-- Router Wi-Fi: Cung cấp kết nối Internet và kết nối các thiết bị trong mạng không dây[cite: 5].
-- Switch Ethernet: Kết nối nhiều thiết bị có dây trong mạng LAN[cite: 5].
-- Bộ kết nối Powerline: Truyền dữ liệu thông qua hệ thống dây điện trong nhà[cite: 5].
+- Router Wi-Fi: Cung cấp kết nối Internet và kết nối các thiết bị trong mạng không dây.
+- Switch Ethernet: Kết nối nhiều thiết bị có dây trong mạng LAN.
+- Bộ kết nối Powerline: Truyền dữ liệu thông qua hệ thống dây điện trong nhà.
 
-Câu 2: Có thể kết nối Internet qua điện thoại di động bằng cách bật điểm truy cập cá nhân hoặc sử dụng thiết bị định tuyến 3G/4G[cite: 5].
+Câu 2: Có thể kết nối Internet qua điện thoại di động bằng cách bật điểm truy cập cá nhân hoặc sử dụng thiết bị định tuyến 3G/4G.
 
 VẬN DỤNG
 
-Câu 1: Hành khách trên xe khách có thể truy cập Internet qua Wi-Fi[cite: 5].
+Câu 1: Hành khách trên xe khách có thể truy cập Internet qua Wi-Fi.
 
 Cách thực hiện:
-- Trang bị bộ phát Wi-Fi di động có SIM 4G/5G[cite: 5].
-- Thiết bị nhận tín hiệu di động từ trạm phát sóng[cite: 5].
-- Chuyển tín hiệu thành mạng Wi-Fi để hành khách kết nối[cite: 5].
-- Cấp nguồn cho thiết bị từ nguồn điện trên xe[cite: 5].`
+- Trang bị bộ phát Wi-Fi di động có SIM 4G/5G.
+- Thiết bị nhận tín hiệu di động từ trạm phát sóng.
+- Chuyển tín hiệu thành mạng Wi-Fi để hành khách kết nối.
+- Cấp nguồn cho thiết bị từ nguồn điện trên xe.`
   },
   {
     id: "bai-4",
     number: 4,
     title: "Giao thức mạng",
-    description: "Tìm hiểu IP, TCP, tên miền và lệnh Ping[cite: 5].",
+    description: "Tìm hiểu IP, TCP, tên miền và lệnh Ping.",
     content: `CÂU HỎI TRANG 25
 
-Câu 1: Giao thức IP giúp các thiết bị xác định địa chỉ và trao đổi dữ liệu trên Internet[cite: 5].
+Câu 1: Giao thức IP giúp các thiết bị xác định địa chỉ và trao đổi dữ liệu trên Internet.
 
-- Địa chỉ IP: Xác định thiết bị gửi và nhận dữ liệu[cite: 5].
-- Header IP: Chứa địa chỉ nguồn, địa chỉ đích và thông tin gói tin[cite: 5].
-- Định tuyến: Xác định đường đi của dữ liệu[cite: 5].
+- Địa chỉ IP: Xác định thiết bị gửi và nhận dữ liệu.
+- Header IP: Chứa địa chỉ nguồn, địa chỉ đích và thông tin gói tin.
+- Định tuyến: Xác định đường đi của dữ liệu.
 
-Câu 2: Giao thức TCP[cite: 5]
+Câu 2: Giao thức TCP
 
-- Thiết lập kết nối giữa máy gửi và máy nhận[cite: 5].
-- Chia dữ liệu thành các gói nhỏ[cite: 5].
-- Phát hiện lỗi và truyền lại dữ liệu khi cần[cite: 5].
-- Kiểm soát luồng dữ liệu[cite: 5].
+- Thiết lập kết nối giữa máy gửi và máy nhận.
+- Chia dữ liệu thành các gói nhỏ.
+- Phát hiện lỗi và truyền lại dữ liệu khi cần.
+- Kiểm soát luồng dữ liệu.
 
 LUYỆN TẬP
 
-Các quy tắc trong một cuộc gọi điện thoại tương tự như giao thức mạng, giúp quá trình trao đổi dữ liệu diễn ra theo trình tự[cite: 5].
+Các quy tắc trong một cuộc gọi điện thoại tương tự như giao thức mạng, giúp quá trình trao đổi dữ liệu diễn ra theo trình tự.
 
 VẬN DỤNG
 
-Câu 1: Tên miền dễ nhớ, có cấu trúc phân cấp và linh hoạt[cite: 5]. Ví dụ: .com, .vn và các tên miền cấp dưới[cite: 5]. VNNIC là Trung tâm Internet Việt Nam[cite: 5].
+Câu 1: Tên miền dễ nhớ, có cấu trúc phân cấp và linh hoạt. Ví dụ: .com, .vn và các tên miền cấp dưới. VNNIC là Trung tâm Internet Việt Nam.
 
-Câu 2: Lệnh ping dùng để kiểm tra khả năng kết nối mạng bằng các gói tin ICMP Echo Request/Reply[cite: 5].`
+Câu 2: Lệnh ping dùng để kiểm tra khả năng kết nối mạng bằng các gói tin ICMP Echo Request/Reply.`
   },
   {
     id: "bai-5",
     number: 5,
     title: "Thực hành chia sẻ tài nguyên trên mạng",
-    description: "Thực hành chia sẻ ổ đĩa trên Windows[cite: 5].",
-    content: `CHIA SẺ TOÀN BỘ MỘT Ổ ĐĨA TRÊN WINDOWS[cite: 5]
+    description: "Thực hành chia sẻ ổ đĩa trên Windows.",
+    content: `CHIA SẺ TOÀN BỘ MỘT Ổ ĐĨA TRÊN WINDOWS
 
-1. Chuẩn bị: Đăng nhập bằng tài khoản có quyền phù hợp và xác định ổ đĩa cần chia sẻ[cite: 5].
+1. Chuẩn bị: Đăng nhập bằng tài khoản có quyền phù hợp và xác định ổ đĩa cần chia sẻ.
 
-2. Chia sẻ ổ đĩa[cite: 5]:
-- Nhấp chuột phải vào ổ đĩa, chọn Properties[cite: 5].
-- Mở tab Sharing[cite: 5].
-- Chọn Advanced Sharing[cite: 5].
-- Đánh dấu Share this folder[cite: 5].
-- Cấu hình Permissions phù hợp[cite: 5].
-- Nhấn OK để hoàn tất[cite: 5].
+2. Chia sẻ ổ đĩa:
+- Nhấp chuột phải vào ổ đĩa, chọn Properties.
+- Mở tab Sharing.
+- Chọn Advanced Sharing.
+- Đánh dấu Share this folder.
+- Cấu hình Permissions phù hợp.
+- Nhấn OK để hoàn tất.
 
-3. Kiểm tra[cite: 5]:
-Trên máy tính khác trong cùng mạng LAN, mở File Explorer và truy cập địa chỉ mạng của máy tính chia sẻ[cite: 5].
+3. Kiểm tra:
+Trên máy tính khác trong cùng mạng LAN, mở File Explorer và truy cập địa chỉ mạng của máy tính chia sẻ.
 
 LƯU Ý: Chỉ cấp quyền truy cập cho người dùng đáng tin cậy.`
   },
@@ -118,10 +118,10 @@ LƯU Ý: Chỉ cấp quyền truy cập cho người dùng đáng tin cậy.`
     id: "bai-6",
     number: 6,
     title: "Giao tiếp và ứng xử trong không gian mạng",
-    description: "Văn hóa giao tiếp và học tập trực tuyến[cite: 5].",
-    content: `LUYỆN TẬP VÀ VẬN DỤNG[cite: 5]
+    description: "Văn hóa giao tiếp và học tập trực tuyến.",
+    content: `LUYỆN TẬP VÀ VẬN DỤNG
 
-1. Kể về trải nghiệm học tập nhóm trực tuyến qua Zalo hoặc Google Meet[cite: 5].
+1. Kể về trải nghiệm học tập nhóm trực tuyến qua Zalo hoặc Google Meet.
 
 2. Một buổi học nhóm trực tuyến hiệu quả cần:
 - Chuẩn bị nội dung trước buổi học.
@@ -129,7 +129,7 @@ LƯU Ý: Chỉ cấp quyền truy cập cho người dùng đáng tin cậy.`
 - Chia sẻ tài liệu rõ ràng.
 - Bảo vệ thông tin cá nhân và tài khoản.
 
-3. Bài tập: Viết thư điện tử xin bạn cho mượn vở ghi chép khi bản thân nghỉ học vì bị ốm[cite: 5].
+3. Bài tập: Viết thư điện tử xin bạn cho mượn vở ghi chép khi bản thân nghỉ học vì bị ốm.
 
 Gợi ý: Thư cần có tiêu đề, lời chào, nội dung yêu cầu, lời cảm ơn và chữ ký.`
   },
@@ -137,10 +137,10 @@ Gợi ý: Thư cần có tiêu đề, lời chào, nội dung yêu cầu, lời 
     id: "bai-7",
     number: 7,
     title: "HTML và cấu trúc trang web",
-    description: "Cấu trúc cơ bản của một tài liệu HTML[cite: 5].",
+    description: "Cấu trúc cơ bản của một tài liệu HTML.",
     content: `LUYỆN TẬP
 
-Ví dụ tạo trang web hiển thị bài thơ về sen[cite: 5]:
+Ví dụ tạo trang web hiển thị bài thơ về sen:
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -159,19 +159,19 @@ Ví dụ tạo trang web hiển thị bài thơ về sen[cite: 5]:
 </html>
 
 GHI NHỚ
-- <!DOCTYPE html> khai báo tài liệu HTML5[cite: 5].
-- <head> chứa thông tin về trang[cite: 5].
-- <title> đặt tiêu đề trên tab trình duyệt[cite: 5].
-- <body> chứa nội dung hiển thị trên trang web[cite: 5].`
+- <!DOCTYPE html> khai báo tài liệu HTML5.
+- <head> chứa thông tin về trang.
+- <title> đặt tiêu đề trên tab trình duyệt.
+- <body> chứa nội dung hiển thị trên trang web.`
   },
   {
     id: "bai-8",
     number: 8,
     title: "Định dạng văn bản",
-    description: "Sử dụng các thẻ HTML để định dạng nội dung[cite: 5].",
+    description: "Sử dụng các thẻ HTML để định dạng nội dung.",
     content: `LUYỆN TẬP
 
-Ví dụ trang giới thiệu dịch vụ Internet tốc độ cao[cite: 5]:
+Ví dụ trang giới thiệu dịch vụ Internet tốc độ cao:
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -182,32 +182,32 @@ Ví dụ trang giới thiệu dịch vụ Internet tốc độ cao[cite: 5]:
 <body>
   <h1>INTERNET TỐC ĐỘ CAO</h1>
   <p><em>Dịch vụ Internet cáp quang chất lượng cao,
-  ổn định, giá cả hợp lí[cite: 5].</em></p>
+  ổn định, giá cả hợp lí.</em></p>
 
-  <h2><strong>Các tính năng nổi bật[cite: 5]:</strong></h2>
+  <h2><strong>Các tính năng nổi bật:</strong></h2>
   <ul>
-    <li>Tốc độ cao[cite: 5]</li>
-    <li>Lắp đặt nhanh chóng[cite: 5]</li>
-    <li>Phù hợp với cá nhân và hộ gia đình[cite: 5]</li>
+    <li>Tốc độ cao</li>
+    <li>Lắp đặt nhanh chóng</li>
+    <li>Phù hợp với cá nhân và hộ gia đình</li>
   </ul>
 </body>
 </html>
 
 GHI NHỚ
-- <h1>, <h2>: Tạo tiêu đề[cite: 5].
-- <p>: Tạo đoạn văn[cite: 5].
-- <strong>: Nhấn mạnh nội dung[cite: 5].
-- <em>: In nghiêng nội dung[cite: 5].
-- <ul> và <li>: Tạo danh sách không thứ tự[cite: 5].`
+- <h1>, <h2>: Tạo tiêu đề.
+- <p>: Tạo đoạn văn.
+- <strong>: Nhấn mạnh nội dung.
+- <em>: In nghiêng nội dung.
+- <ul> và <li>: Tạo danh sách không thứ tự.`
   },
   {
     id: "bai-9",
     number: 9,
     title: "Tạo danh sách, bảng",
-    description: "Tạo bảng HTML và sinh bảng bằng Python[cite: 5].",
-    content: `LUYỆN TẬP TRANG 56[cite: 5]
+    description: "Tạo bảng HTML và sinh bảng bằng Python.",
+    content: `LUYỆN TẬP TRANG 56
 
-Ví dụ tạo bảng HTML[cite: 5]:
+Ví dụ tạo bảng HTML:
 
 <table>
   <tr>
@@ -224,7 +224,7 @@ Ví dụ tạo bảng HTML[cite: 5]:
   </tr>
 </table>
 
-VẬN DỤNG: Sinh bảng HTML bằng Python[cite: 5]
+VẬN DỤNG: Sinh bảng HTML bằng Python
 
 def generate_html_table(data):
     html = '<table>'
@@ -237,20 +237,20 @@ def generate_html_table(data):
     return html
 
 GHI NHỚ
-- <table>: Tạo bảng[cite: 5].
-- <tr>: Tạo hàng[cite: 5].
-- <th>: Tạo ô tiêu đề[cite: 5].
-- <td>: Tạo ô dữ liệu[cite: 5].
-- Có thể sử dụng CSS để định dạng đường viền và màu sắc[cite: 5].`
+- <table>: Tạo bảng.
+- <tr>: Tạo hàng.
+- <th>: Tạo ô tiêu đề.
+- <td>: Tạo ô dữ liệu.
+- Có thể sử dụng CSS để định dạng đường viền và màu sắc.`
   },
   {
     id: "bai-10",
     number: 10,
     title: "Tạo liên kết",
-    description: "Sử dụng thẻ a để liên kết giữa các trang web[cite: 5].",
+    description: "Sử dụng thẻ a để liên kết giữa các trang web.",
     content: `LUYỆN TẬP
 
-Ví dụ tạo trang giới thiệu bản thân[cite: 5]:
+Ví dụ tạo trang giới thiệu bản thân:
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -277,9 +277,9 @@ Ví dụ tạo trang giới thiệu bản thân[cite: 5]:
 </html>
 
 GHI NHỚ
-- Thẻ <a> tạo liên kết[cite: 5].
-- Thuộc tính href chỉ định địa chỉ đích[cite: 5].
-- target="_blank" mở liên kết trong tab mới[cite: 5].`
+- Thẻ <a> tạo liên kết.
+- Thuộc tính href chỉ định địa chỉ đích.
+- target="_blank" mở liên kết trong tab mới.`
   }
 ];
 
@@ -298,32 +298,17 @@ function getData() {
     ...(saved.lessons?.[item.id] || {})
   }));
 
-  const customLessons = [];
-  if (saved.lessons) {
-    for (const id in saved.lessons) {
-      if (!LESSONS.some(l => l.id === id)) {
-        customLessons.push(saved.lessons[id]);
-      }
-    }
-  }
-
-  const baseMembers = MEMBERS.map(item => ({
-    ...item,
-    ...(saved.members?.[item.id] || {})
-  }));
-
-  const customMembers = [];
-  if (saved.members) {
-    for (const id in saved.members) {
-      if (!MEMBERS.some(m => m.id === id)) {
-        customMembers.push(saved.members[id]);
-      }
-    }
-  }
+  const customLessons = saved.customLessons || [];
 
   return {
-    members: [...baseMembers, ...customMembers],
-    lessons: [...baseLessons, ...customLessons]
+    members: MEMBERS.map(item => ({
+      ...item,
+      ...(saved.members?.[item.id] || {})
+    })),
+    lessons: [...baseLessons, ...customLessons.map(item => ({
+      ...item,
+      ...(saved.lessons?.[item.id] || {})
+    }))]
   };
 }
 
@@ -337,6 +322,18 @@ function saveItem(type, item) {
 
   if (!saved[type]) saved[type] = {};
   saved[type][item.id] = item;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+}
+
+function addCustomLesson(newLesson) {
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch (error) {
+    saved = {};
+  }
+  if (!saved.customLessons) saved.customLessons = [];
+  saved.customLessons.push(newLesson);
   localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
 }
 
@@ -359,15 +356,15 @@ function renderHome() {
   const lessonList = document.getElementById("lesson-list");
   if (!memberList || !lessonList) return;
 
+  memberList.innerHTML = "";
+  lessonList.innerHTML = "";
+
   const data = getData();
 
   document.getElementById("member-count").textContent =
     `${data.members.length} thành viên`;
   document.getElementById("lesson-count").textContent =
     `${data.lessons.length} bài học`;
-
-  memberList.innerHTML = "";
-  lessonList.innerHTML = "";
 
   data.members.forEach((member, index) => {
     const card = makeLink(
@@ -404,12 +401,53 @@ function renderHome() {
       "small", "", `BÀI ${lesson.number} · TIN HỌC`
     ));
     info.append(makeElement("h3", "", lesson.title));
-    info.append(makeElement("p", "", lesson.description));
+    info.append(makeElement("p", "", lesson.description || "Chưa có mô tả ngắn."));
 
     card.append(info);
     card.append(makeElement("span", "lesson-arrow", "↗"));
     lessonList.append(card);
   });
+
+  // Modal xử lý thêm bài học
+  const openModalBtn = document.getElementById("open-add-lesson-modal");
+  const closeModalBtn = document.getElementById("close-add-lesson-modal");
+  const modalOverlay = document.getElementById("add-lesson-modal");
+  const addForm = document.getElementById("add-lesson-form");
+
+  if (openModalBtn && closeModalBtn && modalOverlay && addForm) {
+    // Tránh gán sự kiện nhiều lần nếu render lại
+    openModalBtn.onclick = () => {
+      modalOverlay.style.display = "grid";
+    };
+    closeModalBtn.onclick = () => {
+      modalOverlay.style.display = "none";
+      addForm.reset();
+    };
+    modalOverlay.onclick = (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.style.display = "none";
+        addForm.reset();
+      }
+    };
+    addForm.onsubmit = (e) => {
+      e.preventDefault();
+      const formData = new FormData(addForm);
+      const number = parseInt(formData.get("number")) || (data.lessons.length + 1);
+      const title = String(formData.get("title") || "").trim();
+      const description = String(formData.get("description") || "").trim();
+      const content = String(formData.get("content") || "").trim();
+      const id = `bai-custom-${Date.now()}`;
+
+      if (!title) return;
+
+      const newLesson = { id, number, title, description, content };
+      addCustomLesson(newLesson);
+
+      modalOverlay.style.display = "none";
+      addForm.reset();
+      renderHome();
+    };
+  }
 }
 
 function renderDetail() {
@@ -453,7 +491,7 @@ function renderDetail() {
 
   hero.append(makeElement(
     "p", "",
-    isMember ? (item.role || "Thành viên nhóm") : item.description
+    isMember ? (item.role || "Thành viên nhóm") : (item.description || "")
   ));
 
   const actions = makeElement("div", "action-row");
@@ -505,7 +543,6 @@ function renderDetail() {
     addField("Giới thiệu", "bio", item.bio, true);
     addField("Thông tin liên hệ", "contact", item.contact);
   } else {
-    addField("Số thứ tự bài học", "number", item.number);
     addField("Tiêu đề bài học", "title", item.title);
     addField("Mô tả ngắn", "description", item.description, true);
     addField("Nội dung bài học", "content", item.content, true);
@@ -540,16 +577,10 @@ function renderDetail() {
     const formData = new FormData(editor);
     const updated = { ...item };
 
-    if (isMember) {
-      updated.name = String(formData.get("name") || "").trim();
-      updated.role = String(formData.get("role") || "").trim();
-      updated.bio = String(formData.get("bio") || "").trim();
-      updated.contact = String(formData.get("contact") || "").trim();
-    } else {
-      updated.number = parseInt(formData.get("number") || "1", 10);
-      updated.title = String(formData.get("title") || "").trim();
-      updated.description = String(formData.get("description") || "").trim();
-      updated.content = String(formData.get("content") || "").trim();
+    for (const key of isMember
+      ? ["name", "role", "bio", "contact"]
+      : ["title", "description", "content"]) {
+      updated[key] = String(formData.get(key) || "").trim();
     }
 
     saveItem(isMember ? "members" : "lessons", updated);
@@ -561,57 +592,7 @@ function renderDetail() {
   root.replaceChildren(hero, panel);
 }
 
-function setupAddLessonModal() {
-  const modal = document.getElementById("add-lesson-modal");
-  const openBtn = document.getElementById("open-add-lesson-modal");
-  const closeBtn = document.getElementById("close-add-lesson-modal");
-  const cancelBtn = document.getElementById("cancel-add-lesson");
-  const form = document.getElementById("add-lesson-form");
-
-  if (!modal || !openBtn || !form) return;
-
-  const toggleModal = (show) => {
-    modal.style.display = show ? "grid" : "none";
-    if (show) {
-      form.querySelector("input")?.focus();
-    }
-  };
-
-  openBtn.addEventListener("click", () => toggleModal(true));
-  closeBtn?.addEventListener("click", () => toggleModal(false));
-  cancelBtn?.addEventListener("click", () => toggleModal(false));
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) toggleModal(false);
-  });
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-    const number = parseInt(formData.get("number") || "1", 10);
-    const title = String(formData.get("title") || "").trim();
-    const description = String(formData.get("description") || "").trim();
-    const content = String(formData.get("content") || "").trim();
-
-    if (!title) return;
-
-    const id = `bai-${Date.now()}`;
-    const newLesson = {
-      id,
-      number,
-      title,
-      description,
-      content
-    };
-
-    saveItem("lessons", newLesson);
-    form.reset();
-    toggleModal(false);
-    renderHome();
-  });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   renderHome();
   renderDetail();
-  setupAddLessonModal();
 });
