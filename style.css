@@ -464,44 +464,34 @@ footer {
   .section-heading h2 { font-size: 22px; }
   .detail-hero, .detail-panel { padding: 21px; }
 }
-/* Modal thêm bài học */
+/* Thêm CSS cho Modal Thêm Bài Học */
 .modal-overlay {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(48, 53, 47, 0.45);
-  backdrop-filter: blur(4px);
   display: grid;
   place-items: center;
   z-index: 1000;
   padding: 20px;
+  backdrop-filter: blur(3px);
 }
 
 .modal-box {
-  width: min(100% - 20px, 550px);
+  width: min(100% - 20px, 600px);
   max-height: 90vh;
   overflow-y: auto;
-  background: var(--paper);
-  border: 1px solid var(--border);
-  border-radius: 20px;
+  background: white;
   padding: 30px;
+  border-radius: 22px;
+  border: 1px solid var(--border);
   box-shadow: 0 20px 40px rgba(54, 61, 44, 0.15);
 }
 
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.modal-box h3 {
   margin-bottom: 20px;
-}
-
-.modal-header h3 {
-  font-size: 18px;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--muted);
+  font-size: 20px;
+  color: var(--text);
 }
