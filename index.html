@@ -68,3 +68,60 @@
   </footer>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nhóm 2 - Lớp 12S</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">✿</span>
+      <span>NHÓM 2 <small>· LỚP 12S</small></span>
+    </a>
+    <a href="#lessons" class="nav-link">Bài tập & Bài hát ↗</a>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="eyebrow">✦ OUR LITTLE CORNER</span>
+      <h1>Mỗi người một sắc màu,<br><span>cùng nhau tỏa sáng.</span></h1>
+      <p>Xin chào! Chúng mình là Nhóm 2 – Lớp 12S, đây là trang web giới thiệu về bản thân và các bài thực hành học tập.</p>
+      <a class="primary-btn" href="#members">Khám phá nhóm <span>↓</span></a>
+      <div class="hero-decoration">🌿</div>
+    </section>
+
+    <!-- Danh sách thành viên -->
+    <section id="members" class="section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MEET OUR TEAM</span>
+          <h2>Thành viên nhóm</h2>
+          <p>Nhấn vào từng thành viên để xem và tự cập nhật thông tin cá nhân.</p>
+        </div>
+        <span class="count-badge" id="member-count">05 thành viên</span>
+      </div>
+      <div class="member-grid" id="member-list"></div>
+    </section>
+
+    <!-- Tích hợp Bài tập Vận dụng vào phần Bài học -->
+    <section id="lessons" class="section lessons-section">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">PRACTICE & MEDIA</span>
+          <h2>Bài tập vận dụng & Bài hát yêu thích</h2>
+          <p>Nội dung thực hành HTML và giao lưu cùng nhóm bạn.</p>
+        </div>
+      </div>
+
+      <!-- Khung hiển thị Video YouTube -->
+      <div class="detail-panel" style="margin-bottom: 25px;">
+        <h2>Bài hát yêu thích của tôi</h2>
+        <p style="color: var(--muted); margin-bottom: 15px; font-size: 13px;">Khung nội tuyến (
