@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nhóm 2 - Lớp 12S</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -49,4 +46,52 @@
         </div>
         <div style="display: flex; align-items: center; gap: 10px;">
           <button class="btn btn-primary" id="open-add-lesson-modal" type="button">+ Thêm bài học</button>
-          <span class="count-badge" id
+          <span class="count-badge" id="lesson-count">08 bài học</span>
+        </div>
+      </div>
+      <div class="lesson-grid" id="lesson-list"></div>
+    </section>
+
+    <section class="quote">
+      <span>“</span>
+      <p>Học tập là hành trình đẹp hơn khi chúng ta đi cùng nhau.</p>
+      <small>— NHÓM 2 · 12S —</small>
+    </section>
+  </main>
+
+  <!-- Modal Thêm Bài Học -->
+  <div id="add-lesson-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-box">
+      <h3>Thêm bài học mới</h3>
+      <form id="add-lesson-form" class="edit-form">
+        <div class="field">
+          <label for="new-lesson-number">Số thứ tự bài học (ví dụ: 11)</label>
+          <input type="number" id="new-lesson-number" name="number" required value="11">
+        </div>
+        <div class="field">
+          <label for="new-lesson-title">Tiêu đề bài học</label>
+          <input type="text" id="new-lesson-title" name="title" required placeholder="Nhập tiêu đề bài học...">
+        </div>
+        <div class="field">
+          <label for="new-lesson-desc">Mô tả ngắn</label>
+          <textarea id="new-lesson-desc" name="description" placeholder="Mô tả ngắn gọn về bài học..."></textarea>
+        </div>
+        <div class="field">
+          <label for="new-lesson-content">Nội dung chi tiết</label>
+          <textarea id="new-lesson-content" name="content" placeholder="Nội dung chi tiết của bài học..."></textarea>
+        </div>
+        <div class="action-row">
+          <button type="submit" class="btn btn-primary">Lưu bài học</button>
+          <button type="button" class="btn" id="close-add-lesson-modal">Hủy</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <a class="brand footer-brand" href="index.html">✿ NHÓM 2 · 12S</a>
+    <p>Được tạo bằng sự sáng tạo và tinh thần đồng đội.</p>
+    <small>© 2026 Nhóm 2 - Lớp 12S</small>
+  </footer>
+</body>
+</html>
