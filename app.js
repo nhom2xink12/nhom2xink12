@@ -6,7 +6,6 @@ const firebaseConfig = {
     storageBucket: "nhom-2-xink-12.firebasestorage.app",
     messagingSenderId: "747008515918",
     appId: "1:747008515918:web:8b2793c9559d5de2a0481f",
-    measurementId: "G-HZ7C0L6J7J"
 };
 
 // Khởi tạo Firebase
