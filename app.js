@@ -1,255 +1,598 @@
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCyl7to9uydBNHg0Z9YlxXBEllVrPJ5cSg",
-  authDomain: "nhom-2-xink-12.firebaseapp.com",
-  projectId: "nhom-2-xink-12",
-  storageBucket: "nhom-2-xink-12.firebasestorage.app",
-  messagingSenderId: "747008515918",
-  appId: "1:747008515918:web:8b2793c9559d5de2a0481f",
-  measurementId: "G-HZ7C0L6J7J"
-};
-
-// Khởi tạo Firebase
-if (typeof firebase !== 'undefined' && !firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
-const db = typeof firebase !== 'undefined' ? firebase.database() : null;
-
-// Dữ liệu mặc định ban đầu nếu Firebase chưa có
-const INITIAL_MEMBERS = [
-  { id: "khanh-an", name: "Trần Huỳnh Khánh An", role: "Thành viên nhóm", bio: "Một mảnh ghép của Nhóm 2 - Lớp 12S.", contact: "", avatar: "" },
-  { id: "phuong-tuong", name: "Ngô Trần Phương Tường", role: "Thành viên nhóm", bio: "Một mảnh ghép của Nhóm 2 - Lớp 12S.", contact: "", avatar: "" },
-  { id: "gia-han", name: "Nguyễn Gia Hân", role: "Thành viên nhóm", bio: "Một mảnh ghép của Nhóm 2 - Lớp 12S.", contact: "", avatar: "" },
-  { id: "my-duyen", name: "Nguyễn Thị Mỹ Duyên", role: "Thành viên nhóm", bio: "Một mảnh ghép của Nhóm 2 - Lớp 12S.", contact: "", avatar: "" },
-  { id: "thanh-truc", name: "Lê Thanh Trúc", role: "Thành viên nhóm", bio: "Một mảnh ghép của Nhóm 2 - Lớp 12S.", contact: "", avatar: "" }
+const MEMBERS = [
+  {
+    id: "khanh-an",
+    name: "Trần Huỳnh Khánh An",
+    role: "Thành viên nhóm",
+    bio: "Một mảnh ghép của Nhóm 2 - Lớp 12S. Hãy bổ sung thông tin giới thiệu của bạn tại đây.",
+    contact: ""
+  },
+  {
+    id: "phuong-tuong",
+    name: "Ngô Trần Phương Tường",
+    role: "Thành viên nhóm",
+    bio: "Một mảnh ghép của Nhóm 2 - Lớp 12S. Hãy bổ sung thông tin giới thiệu của bạn tại đây.",
+    contact: ""
+  },
+  {
+    id: "gia-han",
+    name: "Nguyễn Gia Hân",
+    role: "Thành viên nhóm",
+    bio: "Một mảnh ghép của Nhóm 2 - Lớp 12S. Hãy bổ sung thông tin giới thiệu của bạn tại đây.",
+    contact: ""
+  },
+  {
+    id: "my-duyen",
+    name: "Nguyễn Thị Mỹ Duyên",
+    role: "Thành viên nhóm",
+    bio: "Một mảnh ghép của Nhóm 2 - Lớp 12S. Hãy bổ sung thông tin giới thiệu của bạn tại đây.",
+    contact: ""
+  },
+  {
+    id: "thuy-tram",
+    name: "Phan Thùy Trâm",
+    role: "Thành viên nhóm",
+    bio: "Một mảnh ghép của Nhóm 2 - Lớp 12S. Hãy bổ sung thông tin giới thiệu của bạn tại đây.",
+    contact: ""
+  }
 ];
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (!db) {
-    console.error("Firebase chưa được khởi tạo!");
-    return;
+const LESSONS = [
+  {
+    id: "bai-3",
+    number: 3,
+    title: "Các thiết bị kết nối mạng",
+    description: "Router Wi-Fi, Switch Ethernet và kết nối Internet.",
+    content: `LUYỆN TẬP
+
+Câu 1: Các thiết bị kết nối mạng trong gia đình
+
+- Router Wi-Fi: Cung cấp kết nối Internet và kết nối các thiết bị trong mạng không dây.
+- Switch Ethernet: Kết nối nhiều thiết bị có dây trong mạng LAN.
+- Bộ kết nối Powerline: Truyền dữ liệu thông qua hệ thống dây điện trong nhà.
+
+Câu 2: Có thể kết nối Internet qua điện thoại di động bằng cách bật điểm truy cập cá nhân hoặc sử dụng thiết bị định tuyến 3G/4G.
+
+VẬN DỤNG
+
+Câu 1: Hành khách trên xe khách có thể truy cập Internet qua Wi-Fi.
+
+Cách thực hiện:
+- Trang bị bộ phát Wi-Fi di động có SIM 4G/5G.
+- Thiết bị nhận tín hiệu di động từ trạm phát sóng.
+- Chuyển tín hiệu thành mạng Wi-Fi để hành khách kết nối.
+- Cấp nguồn cho thiết bị từ nguồn điện trên xe.`
+  },
+  {
+    id: "bai-4",
+    number: 4,
+    title: "Giao thức mạng",
+    description: "Tìm hiểu IP, TCP, tên miền và lệnh Ping.",
+    content: `CÂU HỎI TRANG 25
+
+Câu 1: Giao thức IP giúp các thiết bị xác định địa chỉ và trao đổi dữ liệu trên Internet.
+
+- Địa chỉ IP: Xác định thiết bị gửi và nhận dữ liệu.
+- Header IP: Chứa địa chỉ nguồn, địa chỉ đích và thông tin gói tin.
+- Định tuyến: Xác định đường đi của dữ liệu.
+
+Câu 2: Giao thức TCP
+
+- Thiết lập kết nối giữa máy gửi và máy nhận.
+- Chia dữ liệu thành các gói nhỏ.
+- Phát hiện lỗi và truyền lại dữ liệu khi cần.
+- Kiểm soát luồng dữ liệu.
+
+LUYỆN TẬP
+
+Các quy tắc trong một cuộc gọi điện thoại tương tự như giao thức mạng, giúp quá trình trao đổi dữ liệu diễn ra theo trình tự.
+
+VẬN DỤNG
+
+Câu 1: Tên miền dễ nhớ, có cấu trúc phân cấp và linh hoạt. Ví dụ: .com, .vn và các tên miền cấp dưới. VNNIC là Trung tâm Internet Việt Nam.
+
+Câu 2: Lệnh ping dùng để kiểm tra khả năng kết nối mạng bằng các gói tin ICMP Echo Request/Reply.`
+  },
+  {
+    id: "bai-5",
+    number: 5,
+    title: "Thực hành chia sẻ tài nguyên trên mạng",
+    description: "Thực hành chia sẻ ổ đĩa trên Windows.",
+    content: `CHIA SẺ TOÀN BỘ MỘT Ổ ĐĨA TRÊN WINDOWS
+
+1. Chuẩn bị: Đăng nhập bằng tài khoản có quyền phù hợp và xác định ổ đĩa cần chia sẻ.
+
+2. Chia sẻ ổ đĩa:
+- Nhấp chuột phải vào ổ đĩa, chọn Properties.
+- Mở tab Sharing.
+- Chọn Advanced Sharing.
+- Đánh dấu Share this folder.
+- Cấu hình Permissions phù hợp.
+- Nhấn OK để hoàn tất.
+
+3. Kiểm tra:
+Trên máy tính khác trong cùng mạng LAN, mở File Explorer và truy cập địa chỉ mạng của máy tính chia sẻ.
+
+LƯU Ý: Chỉ cấp quyền truy cập cho người dùng đáng tin cậy.`
+  },
+  {
+    id: "bai-6",
+    number: 6,
+    title: "Giao tiếp và ứng xử trong không gian mạng",
+    description: "Văn hóa giao tiếp và học tập trực tuyến.",
+    content: `LUYỆN TẬP VÀ VẬN DỤNG
+
+1. Kể về trải nghiệm học tập nhóm trực tuyến qua Zalo hoặc Google Meet.
+
+2. Một buổi học nhóm trực tuyến hiệu quả cần:
+- Chuẩn bị nội dung trước buổi học.
+- Đúng giờ và tôn trọng người đang phát biểu.
+- Chia sẻ tài liệu rõ ràng.
+- Bảo vệ thông tin cá nhân và tài khoản.
+
+3. Bài tập: Viết thư điện tử xin bạn cho mượn vở ghi chép khi bản thân nghỉ học vì bị ốm.
+
+Gợi ý: Thư cần có tiêu đề, lời chào, nội dung yêu cầu, lời cảm ơn và chữ ký.`
+  },
+  {
+    id: "bai-7",
+    number: 7,
+    title: "HTML và cấu trúc trang web",
+    description: "Cấu trúc cơ bản của một tài liệu HTML.",
+    content: `LUYỆN TẬP
+
+Ví dụ tạo trang web hiển thị bài thơ về sen:
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Văn bản về sen</title>
+</head>
+<body>
+  <p>
+    Trong đầm gì đẹp bằng sen<br>
+    Lá xanh bông trắng lại chen nhị vàng<br>
+    Nhị vàng bông trắng lá xanh<br>
+    Gần bùn mà chẳng hôi tanh mùi bùn
+  </p>
+</body>
+</html>
+
+GHI NHỚ
+- <!DOCTYPE html> khai báo tài liệu HTML5.
+- <head> chứa thông tin về trang.
+- <title> đặt tiêu đề trên tab trình duyệt.
+- <body> chứa nội dung hiển thị trên trang web.`
+  },
+  {
+    id: "bai-8",
+    number: 8,
+    title: "Định dạng văn bản",
+    description: "Sử dụng các thẻ HTML để định dạng nội dung.",
+    content: `LUYỆN TẬP
+
+Ví dụ trang giới thiệu dịch vụ Internet tốc độ cao:
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>INTERNET TỐC ĐỘ CAO</title>
+</head>
+<body>
+  <h1>INTERNET TỐC ĐỘ CAO</h1>
+  <p><em>Dịch vụ Internet cáp quang chất lượng cao,
+  ổn định, giá cả hợp lí.</em></p>
+
+  <h2><strong>Các tính năng nổi bật:</strong></h2>
+  <ul>
+    <li>Tốc độ cao</li>
+    <li>Lắp đặt nhanh chóng</li>
+    <li>Phù hợp với cá nhân và hộ gia đình</li>
+  </ul>
+</body>
+</html>
+
+GHI NHỚ
+- <h1>, <h2>: Tạo tiêu đề.
+- <p>: Tạo đoạn văn.
+- <strong>: Nhấn mạnh nội dung.
+- <em>: In nghiêng nội dung.
+- <ul> và <li>: Tạo danh sách không thứ tự.`
+  },
+  {
+    id: "bai-9",
+    number: 9,
+    title: "Tạo danh sách, bảng",
+    description: "Tạo bảng HTML và sinh bảng bằng Python.",
+    content: `LUYỆN TẬP TRANG 56
+
+Ví dụ tạo bảng HTML:
+
+<table>
+  <tr>
+    <th>Họ tên</th>
+    <th>Điểm Toán</th>
+    <th>Điểm Vật lí</th>
+    <th>Điểm Hóa học</th>
+  </tr>
+  <tr>
+    <td>Nguyễn An</td>
+    <td>9</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+</table>
+
+VẬN DỤNG: Sinh bảng HTML bằng Python
+
+def generate_html_table(data):
+    html = '<table>'
+    for row in data:
+        html += '<tr>'
+        for value in row:
+            html += f'<td>{value}</td>'
+        html += '</tr>'
+    html += '</table>'
+    return html
+
+GHI NHỚ
+- <table>: Tạo bảng.
+- <tr>: Tạo hàng.
+- <th>: Tạo ô tiêu đề.
+- <td>: Tạo ô dữ liệu.
+- Có thể sử dụng CSS để định dạng đường viền và màu sắc.`
+  },
+  {
+    id: "bai-10",
+    number: 10,
+    title: "Tạo liên kết",
+    description: "Sử dụng thẻ a để liên kết giữa các trang web.",
+    content: `LUYỆN TẬP
+
+Ví dụ tạo trang giới thiệu bản thân:
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giới thiệu bản thân</title>
+</head>
+<body>
+  <h1>Giới thiệu bản thân</h1>
+  <p>Xin chào! Tôi là Nguyễn Gia Hân.</p>
+
+  <h2>Bạn cùng lớp</h2>
+  <ul>
+    <li><a href="https://www.facebook.com"
+      target="_blank" rel="noopener noreferrer">
+      Facebook của bạn 1
+    </a></li>
+    <li><a href="https://www.facebook.com"
+      target="_blank" rel="noopener noreferrer">
+      Facebook của bạn 2
+    </a></li>
+  </ul>
+</body>
+</html>
+
+GHI NHỚ
+- Thẻ <a> tạo liên kết.
+- Thuộc tính href chỉ định địa chỉ đích.
+- target="_blank" mở liên kết trong tab mới.`
+  }
+];
+
+const STORAGE_KEY = "nhom2_12s_data_v1";
+
+function getData() {
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch (error) {
+    console.warn("Không đọc được dữ liệu đã lưu.", error);
   }
 
-  // Khởi tạo dữ liệu mẫu lên Firebase nếu chưa có
-  const membersRef = db.ref("members");
-  membersRef.once("value", (snapshot) => {
-    if (!snapshot.exists()) {
-      INITIAL_MEMBERS.forEach(m => {
-        db.ref("members/" + m.id).set(m);
-      });
-    }
-  });
+  const baseLessons = LESSONS.map(item => ({
+    ...item,
+    ...(saved.lessons?.[item.id] || {})
+  }));
 
-  // Kiểm tra đang ở trang nào để render phù hợp
-  const path = window.location.pathname;
-  if (path.includes("detail.html")) {
-    initDetailPage();
-  } else {
-    initHomePage();
-  }
-});
+  const customLessons = saved.customLessons || [];
 
-// --- TRANG CHỦ (index.html) ---
-function initHomePage() {
-  const memberListEl = document.getElementById("member-list");
-  const memberCountEl = document.getElementById("member-count");
-
-  // Lắng nghe dữ liệu realtime từ Firebase cho danh sách thành viên
-  db.ref("members").on("value", (snapshot) => {
-    const data = snapshot.val();
-    if (!data) return;
-
-    memberListEl.innerHTML = "";
-    const members = Object.values(data);
-    memberCountEl.textContent = `${members.length} thành viên`;
-
-    members.forEach((m, index) => {
-      const toneClass = `tone-${(index % 4) + 1}`;
-      
-      // Hiển thị ảnh đại diện nếu có URL, ngược lại hiển thị chữ cái đầu
-      let avatarHTML = '';
-      if (m.avatar && m.avatar.trim() !== '') {
-        avatarHTML = `<div class="avatar"><img src="${m.avatar}" alt="${m.name}"></div>`;
-      } else {
-        const firstLetter = m.name ? m.name.charAt(0) : "M";
-        avatarHTML = `<div class="avatar ${toneClass}">${firstLetter}</div>`;
-      }
-
-      const card = document.createElement("a");
-      card.className = "member-card";
-      card.href = `detail.html?id=${m.id}`;
-      card.innerHTML = `
-        ${avatarHTML}
-        <h3>${m.name}</h3>
-        <p>${m.role || 'Thành viên nhóm'}</p>
-        <div class="card-arrow">Xem & cập nhật thông tin <span>→</span></div>
-      `;
-      memberListEl.appendChild(card);
-    });
-  });
-
-  // Tải danh sách bài học
-  loadLessons();
+  return {
+    members: MEMBERS.map(item => ({
+      ...item,
+      ...(saved.members?.[item.id] || {})
+    })),
+    lessons: [...baseLessons, ...customLessons.map(item => ({
+      ...item,
+      ...(saved.lessons?.[item.id] || {})
+    }))]
+  };
 }
 
-// --- TRANG CHI TIẾT & CẬP NHẬT THÔNG TIN (detail.html) ---
-function initDetailPage() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const memberId = urlParams.get("id");
-  const detailPageEl = document.getElementById("detail-page");
-
-  if (!memberId) {
-    detailPageEl.innerHTML = `<div class="empty-state">Không tìm thấy thành viên! <br><a href="index.html" class="btn btn-primary" style="margin-top:15px;display:inline-block;">Về trang chủ</a></div>`;
-    return;
+function saveItem(type, item) {
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch (error) {
+    saved = {};
   }
 
-  db.ref("members/" + memberId).on("value", (snapshot) => {
-    const member = snapshot.val();
-    if (!member) {
-      detailPageEl.innerHTML = `<div class="empty-state">Thành viên không tồn tại!</div>`;
-      return;
-    }
-
-    renderMemberDetail(member);
-  });
+  if (!saved[type]) saved[type] = {};
+  saved[type][item.id] = item;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
 }
 
-function renderMemberDetail(member) {
-  const detailPageEl = document.getElementById("detail-page");
-  let avatarDisplay = '';
-  if (member.avatar && member.avatar.trim() !== '') {
-    avatarDisplay = `<img src="${member.avatar}" alt="${member.name}" class="avatar-preview" />`;
-  } else {
-    avatarDisplay = `<div class="avatar tone-1" style="width:70px; height:70px; font-size:24px; border-radius:50%;">${member.name.charAt(0)}</div>`;
+function addCustomLesson(newLesson) {
+  let saved = {};
+  try {
+    saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch (error) {
+    saved = {};
   }
+  if (!saved.customLessons) saved.customLessons = [];
+  saved.customLessons.push(newLesson);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
+}
 
-  detailPageEl.innerHTML = `
-    <div class="detail-hero">
-      <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 15px;">
-        ${avatarDisplay}
-        <div>
-          <span class="eyebrow">HỒ SƠ CÁ NHÂN</span>
-          <h1>${member.name}</h1>
-          <p>${member.role || 'Thành viên nhóm 2 - 12S'}</p>
-        </div>
-      </div>
-    </div>
+function makeElement(tag, className, text) {
+  const el = document.createElement(tag);
+  if (className) el.className = className;
+  if (text !== undefined) el.textContent = text;
+  return el;
+}
 
-    <div class="detail-panel">
-      <h2>Thông tin chi tiết</h2>
-      <div class="detail-content">
-        <p><strong>Giới thiệu / Tiểu sử:</strong></p>
-        <p style="color: var(--muted); margin-bottom: 15px;">${member.bio || 'Chưa có thông tin giới thiệu.'}</p>
-        
-        <p><strong>Thông tin liên hệ / Mạng xã hội:</strong></p>
-        <p style="color: var(--muted);">${member.contact || 'Chưa cập nhật thông tin liên hệ.'}</p>
-      </div>
+function makeLink(href, className) {
+  const a = document.createElement("a");
+  a.href = href;
+  a.className = className;
+  return a;
+}
 
-      <div class="action-row">
-        <button class="btn btn-primary" id="edit-btn">✏️ Tự cập nhật thông tin của tôi</button>
-      </div>
-    </div>
+function renderHome() {
+  const memberList = document.getElementById("member-list");
+  const lessonList = document.getElementById("lesson-list");
+  if (!memberList || !lessonList) return;
 
-    <div id="edit-section" style="display: none; margin-top: 20px;" class="detail-panel">
-      <h2>Chỉnh sửa thông tin cá nhân</h2>
-      <form id="edit-form" class="edit-form">
-        <div class="field">
-          <label>Họ và tên</label>
-          <input type="text" id="input-name" value="${member.name || ''}" required />
-        </div>
-        <div class="field">
-          <label>Vai trò / Chức vụ trong nhóm</label>
-          <input type="text" id="input-role" value="${member.role || ''}" />
-        </div>
-        <div class="field">
-          <label>Ảnh đại diện (Nhập Link ảnh trực tuyến - URL)</label>
-          <input type="text" id="input-avatar" value="${member.avatar || ''}" placeholder="https://example.com/avatar.jpg" />
-          <small style="color: var(--muted); font-size: 11px;">Bạn có thể tải ảnh lên Imgur / Google Drive công khai và dán link trực tiếp vào đây.</small>
-        </div>
-        <div class="field">
-          <label>Giới thiệu bản thân (Bio)</label>
-          <textarea id="input-bio">${member.bio || ''}</textarea>
-        </div>
-        <div class="field">
-          <label>Thông tin liên hệ (Facebook, Email, SĐT...)</label>
-          <input type="text" id="input-contact" value="${member.contact || ''}" placeholder="VD: facebook.com/tentaikhoan" />
-        </div>
-        <div style="display: flex; gap: 10px;">
-          <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
-          <button type="button" class="btn" id="cancel-btn">Hủy bỏ</button>
-        </div>
-      </form>
-    </div>
-  `;
+  memberList.innerHTML = "";
+  lessonList.innerHTML = "";
 
-  // Xử lý sự kiện bật/tắt form chỉnh sửa
-  const editBtn = document.getElementById("edit-btn");
-  const cancelBtn = document.getElementById("cancel-btn");
-  const editSection = document.getElementById("edit-section");
-  const editForm = document.getElementById("edit-form");
+  const data = getData();
 
-  editBtn.addEventListener("click", () => {
-    editSection.style.display = "block";
-    editBtn.style.display = "none";
+  document.getElementById("member-count").textContent =
+    `${data.members.length} thành viên`;
+  document.getElementById("lesson-count").textContent =
+    `${data.lessons.length} bài học`;
+
+  data.members.forEach((member, index) => {
+    const card = makeLink(
+      `detail.html?type=member&id=${encodeURIComponent(member.id)}`,
+      "member-card"
+    );
+
+    const avatar = makeElement(
+      "div",
+      `avatar tone-${index % 5}`,
+      member.name.trim().charAt(0) || "✿"
+    );
+    card.append(avatar);
+    card.append(makeElement("h3", "", member.name));
+    card.append(makeElement("p", "", member.role || "Thành viên nhóm"));
+
+    const arrow = makeElement("div", "card-arrow");
+    arrow.append(makeElement("span", "", "Xem hồ sơ"));
+    arrow.append(makeElement("span", "", "↗"));
+    card.append(arrow);
+    memberList.append(card);
   });
 
-  cancelBtn.addEventListener("click", () => {
-    editSection.style.display = "none";
-    editBtn.style.display = "inline-block";
+  data.lessons.forEach(lesson => {
+    const card = makeLink(
+      `detail.html?type=lesson&id=${encodeURIComponent(lesson.id)}`,
+      "lesson-card"
+    );
+
+    card.append(makeElement("div", "lesson-icon", "📄"));
+
+    const info = makeElement("div", "lesson-info");
+    info.append(makeElement(
+      "small", "", `BÀI ${lesson.number} · TIN HỌC`
+    ));
+    info.append(makeElement("h3", "", lesson.title));
+    info.append(makeElement("p", "", lesson.description || "Chưa có mô tả ngắn."));
+
+    card.append(info);
+    card.append(makeElement("span", "lesson-arrow", "↗"));
+    lessonList.append(card);
   });
 
-  // Xử lý lưu thông tin lên Firebase
-  editForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const updatedData = {
-      id: member.id,
-      name: document.getElementById("input-name").value.trim(),
-      role: document.getElementById("input-role").value.trim(),
-      avatar: document.getElementById("input-avatar").value.trim(),
-      bio: document.getElementById("input-bio").value.trim(),
-      contact: document.getElementById("input-contact").value.trim()
+  // Modal xử lý thêm bài học
+  const openModalBtn = document.getElementById("open-add-lesson-modal");
+  const closeModalBtn = document.getElementById("close-add-lesson-modal");
+  const modalOverlay = document.getElementById("add-lesson-modal");
+  const addForm = document.getElementById("add-lesson-form");
+
+  if (openModalBtn && closeModalBtn && modalOverlay && addForm) {
+    // Tránh gán sự kiện nhiều lần nếu render lại
+    openModalBtn.onclick = () => {
+      modalOverlay.style.display = "grid";
     };
+    closeModalBtn.onclick = () => {
+      modalOverlay.style.display = "none";
+      addForm.reset();
+    };
+    modalOverlay.onclick = (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.style.display = "none";
+        addForm.reset();
+      }
+    };
+    addForm.onsubmit = (e) => {
+      e.preventDefault();
+      const formData = new FormData(addForm);
+      const number = parseInt(formData.get("number")) || (data.lessons.length + 1);
+      const title = String(formData.get("title") || "").trim();
+      const description = String(formData.get("description") || "").trim();
+      const content = String(formData.get("content") || "").trim();
+      const id = `bai-custom-${Date.now()}`;
 
-    db.ref("members/" + member.id).set(updatedData)
-      .then(() => {
-        alert("Cập nhật thông tin thành công! Mọi người trong nhóm đã có thể thấy thay đổi này.");
-        editSection.style.display = "none";
-        editBtn.style.display = "inline-block";
-      })
-      .catch((error) => {
-        alert("Có lỗi xảy ra: " + error.message);
-      });
-  });
+      if (!title) return;
+
+      const newLesson = { id, number, title, description, content };
+      addCustomLesson(newLesson);
+
+      modalOverlay.style.display = "none";
+      addForm.reset();
+      renderHome();
+    };
+  }
 }
 
-// --- TÀI LIỆU & BÀI HỌC (Trang chủ) ---
-function loadLessons() {
-  const lessonListEl = document.getElementById("lesson-list");
-  const lessonCountEl = document.getElementById("lesson-count");
+function renderDetail() {
+  const root = document.getElementById("detail-page");
+  if (!root) return;
 
-  db.ref("lessons").on("value", (snapshot) => {
-    const data = snapshot.val();
-    if (!data) {
-      lessonListEl.innerHTML = `<p style="grid-column: span 2; color: var(--muted); text-align:center; padding: 20px;">Chưa có bài học nào.</p>`;
-      lessonCountEl.textContent = "0 bài";
-      return;
+  const params = new URLSearchParams(location.search);
+  const type = params.get("type");
+  const id = params.get("id");
+  const data = getData();
+
+  const collection = type === "member"
+    ? data.members
+    : type === "lesson"
+      ? data.lessons
+      : [];
+
+  const item = collection.find(entry => entry.id === id);
+
+  if (!item) {
+    root.replaceChildren(
+      makeElement("div", "empty-state",
+        "Không tìm thấy nội dung. Vui lòng quay lại trang chủ.")
+    );
+    return;
+  }
+
+  document.title = `${type === "member" ? item.name : item.title} | Nhóm 2 - 12S`;
+
+  const isMember = type === "member";
+  const hero = makeElement("section", "detail-hero");
+
+  hero.append(makeElement(
+    "span", "eyebrow",
+    isMember ? "MEMBER PROFILE" : `BÀI HỌC SỐ ${item.number}`
+  ));
+
+  hero.append(makeElement(
+    "h1", "", isMember ? item.name : item.title
+  ));
+
+  hero.append(makeElement(
+    "p", "",
+    isMember ? (item.role || "Thành viên nhóm") : (item.description || "")
+  ));
+
+  const actions = makeElement("div", "action-row");
+  const editButton = makeElement("button", "btn btn-primary", "✎ Chỉnh sửa");
+  editButton.type = "button";
+  actions.append(editButton);
+  hero.append(actions);
+
+  const panel = makeElement("section", "detail-panel");
+  panel.append(makeElement(
+    "h2", "", isMember ? "Thông tin thành viên" : "Nội dung bài học"
+  ));
+
+  const content = makeElement("div", "detail-content");
+  content.textContent = isMember
+    ? item.bio
+    : item.content;
+
+  panel.append(content);
+
+  if (isMember && item.contact) {
+    const contact = makeElement("p", "");
+    contact.style.marginTop = "18px";
+    contact.textContent = `Liên hệ: ${item.contact}`;
+    panel.append(contact);
+  }
+
+  const editor = makeElement("form", "edit-form");
+  editor.hidden = true;
+
+  function addField(labelText, name, value, multiline = false) {
+    const wrapper = makeElement("div", "field");
+    const label = makeElement("label", "", labelText);
+    label.htmlFor = `edit-${name}`;
+
+    const field = document.createElement(multiline ? "textarea" : "input");
+    field.id = `edit-${name}`;
+    field.name = name;
+    field.value = value || "";
+    field.required = name === "name" || name === "title";
+
+    wrapper.append(label, field);
+    editor.append(wrapper);
+  }
+
+  if (isMember) {
+    addField("Họ và tên", "name", item.name);
+    addField("Vai trò", "role", item.role);
+    addField("Giới thiệu", "bio", item.bio, true);
+    addField("Thông tin liên hệ", "contact", item.contact);
+  } else {
+    addField("Tiêu đề bài học", "title", item.title);
+    addField("Mô tả ngắn", "description", item.description, true);
+    addField("Nội dung bài học", "content", item.content, true);
+  }
+
+  const formActions = makeElement("div", "action-row");
+  const saveButton = makeElement("button", "btn btn-primary", "Lưu thay đổi");
+  saveButton.type = "submit";
+
+  const cancelButton = makeElement("button", "btn", "Hủy");
+  cancelButton.type = "button";
+
+  formActions.append(saveButton, cancelButton);
+  editor.append(formActions);
+  panel.append(editor);
+
+  editButton.addEventListener("click", () => {
+    editor.hidden = false;
+    editButton.hidden = true;
+    editor.querySelector("input, textarea")?.focus();
+  });
+
+  cancelButton.addEventListener("click", () => {
+    editor.reset();
+    editor.hidden = true;
+    editButton.hidden = false;
+  });
+
+  editor.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const formData = new FormData(editor);
+    const updated = { ...item };
+
+    for (const key of isMember
+      ? ["name", "role", "bio", "contact"]
+      : ["title", "description", "content"]) {
+      updated[key] = String(formData.get(key) || "").trim();
     }
 
-    lessonListEl.innerHTML = "";
-    const lessons = Object.values(data);
-    lessonCountEl.textContent = `${lessons.length} bài`;
+    saveItem(isMember ? "members" : "lessons", updated);
 
-    lessons.forEach((l) => {
-      const card = document.createElement("div");
-      card.className = "lesson-card";
-      card.innerHTML = `
-        <div class="lesson-icon">📚</div>
-        <div class="lesson-info">
-          <small>${l.tag || 'TÀI LIỆU'}</small>
-          <h3>${l.title}</h3>
-        </div>
-      `;
-      lessonListEl.appendChild(card);
-    });
+    renderDetail();
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
+
+  root.replaceChildren(hero, panel);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  renderHome();
+  renderDetail();
+});
