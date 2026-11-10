@@ -1,8 +1,7 @@
-// --- Cấu hình Firebase Realtime Database ---
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyCyl7to9uydBNHg0Z9YlxXBEllVrPJ5cSg",
   authDomain: "nhom-2-xink-12.firebaseapp.com",
-  databaseURL: "https://nhom-2-xink-12-default-rtdb.firebaseio.com",
   projectId: "nhom-2-xink-12",
   storageBucket: "nhom-2-xink-12.firebasestorage.app",
   messagingSenderId: "747008515918",
