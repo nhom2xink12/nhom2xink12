@@ -1,4 +1,22 @@
-const MEMBERS = [
+// --- Cấu hình Firebase Realtime Database ---
+const firebaseConfig = {
+    apiKey: "AIzaSyCyl7to9uydBNHg0Z9YlxXBEllVrPJ5cSg",
+    authDomain: "nhom-2-xink-12.firebaseapp.com",
+    projectId: "nhom-2-xink-12",
+    storageBucket: "nhom-2-xink-12.firebasestorage.app",
+    messagingSenderId: "747008515918",
+    appId: "1:747008515918:web:8b2793c9559d5de2a0481f",
+    measurementId: "G-HZ7C0L6J7J"
+};
+
+// Khởi tạo Firebase
+if (typeof firebase !== 'undefined' && !firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+const db = typeof firebase !== 'undefined' ? firebase.database() : null;
+
+// Dữ liệu mặc định ban đầu
+const INITIAL_MEMBERS = [
   {
     id: "khanh-an",
     name: "Trần Huỳnh Khánh An",
@@ -36,305 +54,121 @@ const MEMBERS = [
   }
 ];
 
-const LESSONS = [
+const INITIAL_LESSONS = [
   {
     id: "bai-3",
     number: 3,
     title: "Các thiết bị kết nối mạng",
     description: "Router Wi-Fi, Switch Ethernet và kết nối Internet.",
-    content: `LUYỆN TẬP
-
-Câu 1: Các thiết bị kết nối mạng trong gia đình
-
-- Router Wi-Fi: Cung cấp kết nối Internet và kết nối các thiết bị trong mạng không dây.
-- Switch Ethernet: Kết nối nhiều thiết bị có dây trong mạng LAN.
-- Bộ kết nối Powerline: Truyền dữ liệu thông qua hệ thống dây điện trong nhà.
-
-Câu 2: Có thể kết nối Internet qua điện thoại di động bằng cách bật điểm truy cập cá nhân hoặc sử dụng thiết bị định tuyến 3G/4G.
-
-VẬN DỤNG
-
-Câu 1: Hành khách trên xe khách có thể truy cập Internet qua Wi-Fi.
-
-Cách thực hiện:
-- Trang bị bộ phát Wi-Fi di động có SIM 4G/5G.
-- Thiết bị nhận tín hiệu di động từ trạm phát sóng.
-- Chuyển tín hiệu thành mạng Wi-Fi để hành khách kết nối.
-- Cấp nguồn cho thiết bị từ nguồn điện trên xe.`
+    content: `LUYỆN TẬP\n\nCâu 1: Các thiết bị kết nối mạng trong gia đình...\n\n- Router Wi-Fi: Cung cấp kết nối Internet...\n- Switch Ethernet: Kết nối nhiều thiết bị...\n- Bộ kết nối Powerline...`
   },
   {
     id: "bai-4",
     number: 4,
     title: "Giao thức mạng",
     description: "Tìm hiểu IP, TCP, tên miền và lệnh Ping.",
-    content: `CÂU HỎI TRANG 25
-
-Câu 1: Giao thức IP giúp các thiết bị xác định địa chỉ và trao đổi dữ liệu trên Internet.
-
-- Địa chỉ IP: Xác định thiết bị gửi và nhận dữ liệu.
-- Header IP: Chứa địa chỉ nguồn, địa chỉ đích và thông tin gói tin.
-- Định tuyến: Xác định đường đi của dữ liệu.
-
-Câu 2: Giao thức TCP
-
-- Thiết lập kết nối giữa máy gửi và máy nhận.
-- Chia dữ liệu thành các gói nhỏ.
-- Phát hiện lỗi và truyền lại dữ liệu khi cần.
-- Kiểm soát luồng dữ liệu.
-
-LUYỆN TẬP
-
-Các quy tắc trong một cuộc gọi điện thoại tương tự như giao thức mạng, giúp quá trình trao đổi dữ liệu diễn ra theo trình tự.
-
-VẬN DỤNG
-
-Câu 1: Tên miền dễ nhớ, có cấu trúc phân cấp và linh hoạt. Ví dụ: .com, .vn và các tên miền cấp dưới. VNNIC là Trung tâm Internet Việt Nam.
-
-Câu 2: Lệnh ping dùng để kiểm tra khả năng kết nối mạng bằng các gói tin ICMP Echo Request/Reply.`
+    content: `CÂU HỎI TRANG 25\n\nCâu 1: Giao thức IP giúp các thiết bị...`
   },
   {
     id: "bai-5",
     number: 5,
     title: "Thực hành chia sẻ tài nguyên trên mạng",
     description: "Thực hành chia sẻ ổ đĩa trên Windows.",
-    content: `CHIA SẺ TOÀN BỘ MỘT Ổ ĐĨA TRÊN WINDOWS
-
-1. Chuẩn bị: Đăng nhập bằng tài khoản có quyền phù hợp và xác định ổ đĩa cần chia sẻ.
-
-2. Chia sẻ ổ đĩa:
-- Nhấp chuột phải vào ổ đĩa, chọn Properties.
-- Mở tab Sharing.
-- Chọn Advanced Sharing.
-- Đánh dấu Share this folder.
-- Cấu hình Permissions phù hợp.
-- Nhấn OK để hoàn tất.
-
-3. Kiểm tra:
-Trên máy tính khác trong cùng mạng LAN, mở File Explorer và truy cập địa chỉ mạng của máy tính chia sẻ.
-
-LƯU Ý: Chỉ cấp quyền truy cập cho người dùng đáng tin cậy.`
+    content: `CHIA SẺ TOÀN BỘ MỘT Ổ ĐĨA TRÊN WINDOWS...`
   },
   {
     id: "bai-6",
     number: 6,
     title: "Giao tiếp và ứng xử trong không gian mạng",
     description: "Văn hóa giao tiếp và học tập trực tuyến.",
-    content: `LUYỆN TẬP VÀ VẬN DỤNG
-
-1. Kể về trải nghiệm học tập nhóm trực tuyến qua Zalo hoặc Google Meet.
-
-2. Một buổi học nhóm trực tuyến hiệu quả cần:
-- Chuẩn bị nội dung trước buổi học.
-- Đúng giờ và tôn trọng người đang phát biểu.
-- Chia sẻ tài liệu rõ ràng.
-- Bảo vệ thông tin cá nhân và tài khoản.
-
-3. Bài tập: Viết thư điện tử xin bạn cho mượn vở ghi chép khi bản thân nghỉ học vì bị ốm.
-
-Gợi ý: Thư cần có tiêu đề, lời chào, nội dung yêu cầu, lời cảm ơn và chữ ký.`
+    content: `LUYỆN TẬP VÀ VẬN DỤNG...`
   },
   {
     id: "bai-7",
     number: 7,
     title: "HTML và cấu trúc trang web",
     description: "Cấu trúc cơ bản của một tài liệu HTML.",
-    content: `LUYỆN TẬP
-
-Ví dụ tạo trang web hiển thị bài thơ về sen:
-
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <title>Văn bản về sen</title>
-</head>
-<body>
-  <p>
-    Trong đầm gì đẹp bằng sen<br>
-    Lá xanh bông trắng lại chen nhị vàng<br>
-    Nhị vàng bông trắng lá xanh<br>
-    Gần bùn mà chẳng hôi tanh mùi bùn
-  </p>
-</body>
-</html>
-
-GHI NHỚ
-- <!DOCTYPE html> khai báo tài liệu HTML5.
-- <head> chứa thông tin về trang.
-- <title> đặt tiêu đề trên tab trình duyệt.
-- <body> chứa nội dung hiển thị trên trang web.`
+    content: `LUYỆN TẬP\n\nVí dụ tạo trang web hiển thị bài thơ về sen...`
   },
   {
     id: "bai-8",
     number: 8,
     title: "Định dạng văn bản",
     description: "Sử dụng các thẻ HTML để định dạng nội dung.",
-    content: `LUYỆN TẬP
-
-Ví dụ trang giới thiệu dịch vụ Internet tốc độ cao:
-
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <title>INTERNET TỐC ĐỘ CAO</title>
-</head>
-<body>
-  <h1>INTERNET TỐC ĐỘ CAO</h1>
-  <p><em>Dịch vụ Internet cáp quang chất lượng cao,
-  ổn định, giá cả hợp lí.</em></p>
-
-  <h2><strong>Các tính năng nổi bật:</strong></h2>
-  <ul>
-    <li>Tốc độ cao</li>
-    <li>Lắp đặt nhanh chóng</li>
-    <li>Phù hợp với cá nhân và hộ gia đình</li>
-  </ul>
-</body>
-</html>
-
-GHI NHỚ
-- <h1>, <h2>: Tạo tiêu đề.
-- <p>: Tạo đoạn văn.
-- <strong>: Nhấn mạnh nội dung.
-- <em>: In nghiêng nội dung.
-- <ul> và <li>: Tạo danh sách không thứ tự.`
+    content: `LUYỆN TẬP\n\nVí dụ trang giới thiệu dịch vụ Internet tốc độ cao...`
   },
   {
     id: "bai-9",
     number: 9,
     title: "Tạo danh sách, bảng",
     description: "Tạo bảng HTML và sinh bảng bằng Python.",
-    content: `LUYỆN TẬP TRANG 56
-
-Ví dụ tạo bảng HTML:
-
-<table>
-  <tr>
-    <th>Họ tên</th>
-    <th>Điểm Toán</th>
-    <th>Điểm Vật lí</th>
-    <th>Điểm Hóa học</th>
-  </tr>
-  <tr>
-    <td>Nguyễn An</td>
-    <td>9</td>
-    <td>8</td>
-    <td>9</td>
-  </tr>
-</table>
-
-VẬN DỤNG: Sinh bảng HTML bằng Python
-
-def generate_html_table(data):
-    html = '<table>'
-    for row in data:
-        html += '<tr>'
-        for value in row:
-            html += f'<td>{value}</td>'
-        html += '</tr>'
-    html += '</table>'
-    return html
-
-GHI NHỚ
-- <table>: Tạo bảng.
-- <tr>: Tạo hàng.
-- <th>: Tạo ô tiêu đề.
-- <td>: Tạo ô dữ liệu.
-- Có thể sử dụng CSS để định dạng đường viền và màu sắc.`
+    content: `LUYỆN TẬP TRANG 56...`
   },
   {
     id: "bai-10",
     number: 10,
     title: "Tạo liên kết",
     description: "Sử dụng thẻ a để liên kết giữa các trang web.",
-    content: `LUYỆN TẬP
-
-Ví dụ tạo trang giới thiệu bản thân:
-
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <title>Giới thiệu bản thân</title>
-</head>
-<body>
-  <h1>Giới thiệu bản thân</h1>
-  <p>Xin chào! Tôi là Nguyễn Gia Hân.</p>
-
-  <h2>Bạn cùng lớp</h2>
-  <ul>
-    <li><a href="https://www.facebook.com"
-      target="_blank" rel="noopener noreferrer">
-      Facebook của bạn 1
-    </a></li>
-    <li><a href="https://www.facebook.com"
-      target="_blank" rel="noopener noreferrer">
-      Facebook của bạn 2
-    </a></li>
-  </ul>
-</body>
-</html>
-
-GHI NHỚ
-- Thẻ <a> tạo liên kết.
-- Thuộc tính href chỉ định địa chỉ đích.
-- target="_blank" mở liên kết trong tab mới.`
+    content: `LUYỆN TẬP\n\nVí dụ tạo trang giới thiệu bản thân...`
   }
 ];
 
 const STORAGE_KEY = "nhom2_12s_data_v1";
 
-function getData() {
+// Hàm lấy dữ liệu (Ưu tiên Firebase, nếu offline dùng localStorage)
+async function fetchOnlineData() {
+  if (!db) return getLocalFallbackData();
+  try {
+    const snapshot = await db.ref("app_data").once("value");
+    const data = snapshot.val();
+    if (data && data.members && data.lessons) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      return data;
+    } else {
+      // Khởi tạo dữ liệu ban đầu lên Firebase nếu chưa có
+      const initialData = {
+        members: INITIAL_MEMBERS,
+        lessons: INITIAL_LESSONS
+      };
+      await db.ref("app_data").set(initialData);
+      return initialData;
+    }
+  } catch (err) {
+    console.warn("Lỗi kết nối trực tuyến, chuyển sang bộ nhớ cục bộ:", err);
+    return getLocalFallbackData();
+  }
+}
+
+function getLocalFallbackData() {
   let saved = {};
   try {
     saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-  } catch (error) {
-    console.warn("Không đọc được dữ liệu đã lưu.", error);
-  }
-
-  const baseLessons = LESSONS.map(item => ({
-    ...item,
-    ...(saved.lessons?.[item.id] || {})
-  }));
-
-  const customLessons = saved.customLessons || [];
+  } catch (error) {}
 
   return {
-    members: MEMBERS.map(item => ({
-      ...item,
-      ...(saved.members?.[item.id] || {})
-    })),
-    lessons: [...baseLessons, ...customLessons.map(item => ({
-      ...item,
-      ...(saved.lessons?.[item.id] || {})
-    }))]
+    members: saved.members || INITIAL_MEMBERS,
+    lessons: saved.lessons || INITIAL_LESSONS
   };
 }
 
-function saveItem(type, item) {
-  let saved = {};
-  try {
-    saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-  } catch (error) {
-    saved = {};
+// Lưu một mục lên Firebase và Cục bộ
+async function saveItemOnline(type, updatedItem) {
+  const data = await fetchOnlineData();
+  const list = data[type] || [];
+  const index = list.findIndex(item => item.id === updatedItem.id);
+  
+  if (index !== -1) {
+    list[index] = updatedItem;
+  } else {
+    list.push(updatedItem);
   }
+  
+  data[type] = list;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 
-  if (!saved[type]) saved[type] = {};
-  saved[type][item.id] = item;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-}
-
-function addCustomLesson(newLesson) {
-  let saved = {};
-  try {
-    saved = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
-  } catch (error) {
-    saved = {};
+  if (db) {
+    await db.ref(`app_data/${type}`).set(list);
   }
-  if (!saved.customLessons) saved.customLessons = [];
-  saved.customLessons.push(newLesson);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
 }
 
 function makeElement(tag, className, text) {
@@ -351,7 +185,7 @@ function makeLink(href, className) {
   return a;
 }
 
-function renderHome() {
+async function renderHome() {
   const memberList = document.getElementById("member-list");
   const lessonList = document.getElementById("lesson-list");
   if (!memberList || !lessonList) return;
@@ -359,7 +193,7 @@ function renderHome() {
   memberList.innerHTML = "";
   lessonList.innerHTML = "";
 
-  const data = getData();
+  const data = await fetchOnlineData();
 
   document.getElementById("member-count").textContent =
     `${data.members.length} thành viên`;
@@ -415,7 +249,6 @@ function renderHome() {
   const addForm = document.getElementById("add-lesson-form");
 
   if (openModalBtn && closeModalBtn && modalOverlay && addForm) {
-    // Tránh gán sự kiện nhiều lần nếu render lại
     openModalBtn.onclick = () => {
       modalOverlay.style.display = "grid";
     };
@@ -429,7 +262,7 @@ function renderHome() {
         addForm.reset();
       }
     };
-    addForm.onsubmit = (e) => {
+    addForm.onsubmit = async (e) => {
       e.preventDefault();
       const formData = new FormData(addForm);
       const number = parseInt(formData.get("number")) || (data.lessons.length + 1);
@@ -441,7 +274,7 @@ function renderHome() {
       if (!title) return;
 
       const newLesson = { id, number, title, description, content };
-      addCustomLesson(newLesson);
+      await saveItemOnline("lessons", newLesson);
 
       modalOverlay.style.display = "none";
       addForm.reset();
@@ -450,14 +283,14 @@ function renderHome() {
   }
 }
 
-function renderDetail() {
+async function renderDetail() {
   const root = document.getElementById("detail-page");
   if (!root) return;
 
   const params = new URLSearchParams(location.search);
   const type = params.get("type");
   const id = params.get("id");
-  const data = getData();
+  const data = await fetchOnlineData();
 
   const collection = type === "member"
     ? data.members
@@ -571,7 +404,7 @@ function renderDetail() {
     editButton.hidden = false;
   });
 
-  editor.addEventListener("submit", event => {
+  editor.addEventListener("submit", async event => {
     event.preventDefault();
 
     const formData = new FormData(editor);
@@ -583,7 +416,7 @@ function renderDetail() {
       updated[key] = String(formData.get(key) || "").trim();
     }
 
-    saveItem(isMember ? "members" : "lessons", updated);
+    await saveItemOnline(isMember ? "members" : "lessons", updated);
 
     renderDetail();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -595,4 +428,12 @@ function renderDetail() {
 document.addEventListener("DOMContentLoaded", () => {
   renderHome();
   renderDetail();
+  
+  // Tự động cập nhật giao diện khi có thành viên khác vừa sửa dữ liệu
+  if (db) {
+    db.ref("app_data").on("value", () => {
+      renderHome();
+      renderDetail();
+    });
+  }
 });
